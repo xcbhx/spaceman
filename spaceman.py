@@ -1,8 +1,5 @@
 import random
 
-player = input("Please enter your name: ")
-print(f"Welcome {player} let's begin Spaceman!")
-
 def load_word():
     '''
     A function that reads a text file of words and randomly selects one to use as the secret word
@@ -11,13 +8,13 @@ def load_word():
     Returns: 
            string: The secret word to be used in the spaceman guessing game
     '''
-    f = open('words.txt', 'r')
-    words_list = f.readlines()
-    f.close()
+    f = open('words.txt', 'r') # it opens a file with words
+    words_list = f.readlines() # it reads all the words
+    f.close() # it closes the files
     
-    words_list = words_list[0].split(' ') #comment this line out if you use a words.txt file with each word on a new line
-    secret_word = random.choice(words_list)
-    return secret_word
+    words_list = words_list[0].split(' ') # it splits the words into a list.
+    secret_word = random.choice(words_list) # it picks one word from the list randomly.
+    return secret_word # it gives you the secret word to play with.
 
 def is_word_guessed(secret_word, letters_guessed):
     '''
@@ -32,11 +29,10 @@ def is_word_guessed(secret_word, letters_guessed):
     '''
     # TODO: Loop through the letters in the secret_word and check if a letter is not in lettersGuessed
 
-    for letter in secret_word:
-        if letter not in letters_guessed:
-            return False
-        
-    return True
+    for letter in secret_word: # it goes through each letter in the secret word
+        if letter not in letters_guessed: # if a letter hasn't been guessed yet
+            return False # you haven't guessed the word yet.
+    return True # if all letters are guessed, you win. 
 
     pass
 
@@ -59,11 +55,10 @@ def get_guessed_word(secret_word, letters_guessed):
 
     # loop through each letter in the secret_word
     for letter in secret_word:
-        if letter in letters_guessed:
-            guessed_word += letter # add the guessed letter to the result
+        if letter in letters_guessed: # if the letter was guessed
+            guessed_word += letter # add the guessed letter to the result (show letter)
         else: 
-            guessed_word += "_" # add an underscore for unguessed letters
-
+            guessed_word += "_" # if not, add an underscore for unguessed letters.
     return guessed_word
 
     pass
@@ -82,6 +77,10 @@ def is_guess_in_word(guess, secret_word):
 
     '''
     #TODO: check if the letter guess is in the secret word
+    if guess in secret_word:
+        return True 
+    else:
+        return False
 
     pass
 
