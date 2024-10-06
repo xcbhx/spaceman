@@ -1,5 +1,8 @@
 import random
 
+player = input("Please enter your name: ")
+print(f"Welcome {player} let's begin Spaceman!")
+
 def load_word():
     '''
     A function that reads a text file of words and randomly selects one to use as the secret word
@@ -28,6 +31,13 @@ def is_word_guessed(secret_word, letters_guessed):
         bool: True only if all the letters of secret_word are in letters_guessed, False otherwise
     '''
     # TODO: Loop through the letters in the secret_word and check if a letter is not in lettersGuessed
+
+    for letter in secret_word:
+        if letter not in letters_guessed:
+            return False
+        
+    return True
+
     pass
 
 def get_guessed_word(secret_word, letters_guessed):
@@ -43,6 +53,18 @@ def get_guessed_word(secret_word, letters_guessed):
     '''
 
     #TODO: Loop through the letters in secret word and build a string that shows the letters that have been guessed correctly so far that are saved in letters_guessed and underscores for the letters that have not been guessed yet
+    
+    # initialize an empty string to store final result
+    guessed_word = ""
+
+    # loop through each letter in the secret_word
+    for letter in secret_word:
+        if letter in letters_guessed:
+            guessed_word += letter # add the guessed letter to the result
+        else: 
+            guessed_word += "_" # add an underscore for unguessed letters
+
+    return guessed_word
 
     pass
 
