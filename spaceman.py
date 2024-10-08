@@ -104,8 +104,11 @@ def spaceman(secret_word):
     letters_guessed = [] # you start with no letters guessed
     attempts_left = 7 # you have 7 chance to guess wrong
     game_won = False # you haven't won the game yet
-    
+
     #TODO: Ask the player to guess one letter per round and check that it is only one letter
+    while attempts_left > 0 and not game_won: # the game keeps running until you win or run out of tries
+        print(f" You have {attempts_left} attempts_left")
+        print(f" Word so far: {get_guessed_word(secret_word, letters_guessed)}") # show what you've guessed so far
 
     #TODO: Check if the guessed letter is in the secret or not and give the player feedback
 
