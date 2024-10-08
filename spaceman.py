@@ -64,6 +64,7 @@ def get_guessed_word(secret_word, letters_guessed):
     pass
 
 
+
 def is_guess_in_word(guess, secret_word):
     '''
     A function to check if the guessed letter is in the secret word
@@ -95,10 +96,15 @@ def spaceman(secret_word):
       secret_word (string): the secret word to guess.
 
     '''
+    player = input("Please enter your name: ")
+    print(f" Welcome {player}, let's begin Spaceman! Guess the secret word, one letter at a time.")
 
 
     #TODO: show the player information about the game according to the project spec
-
+    letters_guessed = [] # you start with no letters guessed
+    attempts_left = 7 # you have 7 chance to guess wrong
+    game_won = False # you haven't won the game yet
+    
     #TODO: Ask the player to guess one letter per round and check that it is only one letter
 
     #TODO: Check if the guessed letter is in the secret or not and give the player feedback
