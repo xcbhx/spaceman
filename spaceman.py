@@ -110,8 +110,18 @@ def spaceman(secret_word):
         print(f" You have {attempts_left} attempts_left")
         print(f" Word so far: {get_guessed_word(secret_word, letters_guessed)}") # show what you've guessed so far
 
-    #TODO: Check if the guessed letter is in the secret or not and give the player feedback
+        guess = input("Please guess a letter: ").lower() 
 
+    #TODO: Check if the guessed letter is in the secret or not and give the player feedback
+        if get_guessed_word in secret_word: # if you already guessed that letter, tell you
+            print("You've already guessed that letter!")
+        elif is_guess_in_word(guess, secret_word): # if the letter is in the word
+            letters_guessed.append(guess) # add it to the list is in the word
+            print(f"Good job! {guess} is in the word.")
+        else: # if the letter isn't in the word
+            letters_guessed.append(guess) # add it to guessed letters
+            attempts_left -= 1 # take away one of your attempts
+            print(f"{guess} is not in the word.")
     #TODO: show the guessed word so far
 
     #TODO: check if the game has been won or lost
